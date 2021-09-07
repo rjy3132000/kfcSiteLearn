@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC WebSite</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./css/all.css"> -->
+    <script src="https://kit.fontawesome.com/44a8029e75.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="main">
+        <header>
+            <a href=""><img src="./img/logo.png" class="logo"></a>
+            <div class="toggle"></div>
+            <ul class="navigations">
+                <li><a href="">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Its Finger <br> Lickin <span>Good..!</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque illum cumque repellendus dignissimos
+                    quidem enim incidunt sed tenetur numquam ipsa impedit officiis reiciendis magni accusantium,
+                    adipisci quia! Iste, aut velit.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo facilis sequi placeat soluta
+                    sint consequatur laborum, vero reiciendis et deleniti. Nulla natus neque odit fugiat sapiente
+                    deleniti suscipit rem vero?
+                </p>
+                <a href="" class="btn">Order Now</a>
+            </div>
+            <div class="slider">
+                <div class="slides active">
+                    <img src="./img/burger_fries.png" alt="">
+                </div>
+                <div class="slides">
+                    <img src="./img/french_fries.png" alt="">
+                </div>
+                <div class="slides">
+                    <img src="./img/burger.png" alt="">
+                </div>
+                <div class="slides">
+                    <img src="./img/fried_chicken.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul class="sci">
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <div class="preNext">
+                <p>Always Fresh</p>
+                <span class="prev"><i class="fas fa-chevron-left"></i></span>
+                <span class="next"><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+        const menutoggle = document.querySelector('.toggle');
+        const navigations = document.querySelector('.navigations');
+
+        menutoggle.onclick = function(){
+            menutoggle.classList.toggle('active');
+            navigations.classList.toggle('active');
+
+        }
+
+
+
+        const slides = document.querySelectorAll('.slides');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        i = 0;
+
+        function ActiveSlide(n){
+            for(slide of slides)
+            slide.classList.remove('active');
+            slides[n].classList.add('active');
+        }
+
+
+        prev.addEventListener('click', function(){
+            if(i == slides.length - 1){
+                i = 0;
+                ActiveSlide(i);
+            }
+            else{
+                i++;
+                ActiveSlide(i);
+            }
+        })
+
+
+        next.addEventListener('click', function(){
+            if(i == 0){
+                i = slides.length - 1;
+                ActiveSlide(i);
+            }
+            else{
+                i--;
+                ActiveSlide(i);
+            }
+        })
+    </script>
+</body>
+
+</html>
